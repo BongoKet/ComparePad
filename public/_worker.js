@@ -1,4 +1,4 @@
-const GEMINI_MODEL = "gemini-1.5-flash-8b";
+const GEMINI_MODEL = "gemini-2.5-flash-lite";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
 const CORS_HEADERS = {
@@ -21,6 +21,11 @@ export default {
     if (url.pathname === "/api/compare") {
       if (request.method === "OPTIONS") {
         return new Response(null, { status: 204, headers: CORS_HEADERS });
+      }
+
+      if (request.method === "GET") {
+        const hasKey = !!(env.GEMINI_API_KEY);
+        return jsonResponse({ status: "ok", model: GEMINI_MODEL, hasServerKey: hasKey });
       }
 
       if (request.method !== "POST") {
