@@ -1,0 +1,6 @@
+name = "comparepad-api"
+main = "compare.js"
+compatibility_date = "2024-12-01"
+
+# Set your Gemini API key as a secret (never committed):
+#   npx wrangler secret put GEMINI_API_KEY

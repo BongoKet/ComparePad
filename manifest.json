@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "ComparePad",
+  "version": "3.0.0",
+  "description": "Add products from any tab, auto-extract details, and compare with AI.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "comparepad@extension",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "Toggle ComparePad",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "sidebar_action": {
+    "default_title": "ComparePad",
+    "default_panel": "sidebar/sidebar.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
