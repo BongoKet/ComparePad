@@ -28,7 +28,7 @@
   // ── Proxy config ──
   const API_BASE = location.hostname === "localhost"
     ? "http://localhost:8787"
-    : "https://comparepad-api.YOUR_SUBDOMAIN.workers.dev";
+    : "https://comparepad.davidjonesuk1997.workers.dev";
 
   let products = [];
   let apiKey = "";
